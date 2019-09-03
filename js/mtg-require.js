@@ -1,8 +1,8 @@
 
 let mtg = require('mtgsdk');
 
-mtg.card.where({name: 'blood moon'})
+mtg.card.where({name: 'tarmogoyf'})
 	.then(card => {
-		console.log(card[1])
+		console.log(card[1].imageUrl)
 	});
 
