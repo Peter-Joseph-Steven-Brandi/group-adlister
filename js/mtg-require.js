@@ -1,9 +1,8 @@
 
-const mtg = require('mtgsdk');
+let mtg = require('mtgsdk');
 
-mtg.card.find(3)
-	.then(result => {
-		console.log(result.card.name)
+mtg.card.where({name: 'blood moon'})
+	.then(card => {
+		console.log(card[1])
 	});
 
-// card.where({name: 'Squee'}).on('data', card => {console.log(card.name)})
