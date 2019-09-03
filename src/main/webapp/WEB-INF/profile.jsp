@@ -7,7 +7,6 @@
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
 <%--    <link href="https://api.magicthegathering.io/v1/cards">--%>
-    <script
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -22,6 +21,7 @@
                         <h1>${ad.title}</h1>
                         <p>${ad.description}</p>
                         <hr>
+                        <p id="card-name">Abundance</p>
                         <script>
 
                         </script>
@@ -31,6 +31,6 @@
         </div>
     </div>
 
-
+<script src="js/magicAPICall.js"></script>
 </body>
 </html>
