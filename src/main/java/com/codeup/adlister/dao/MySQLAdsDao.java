@@ -166,9 +166,10 @@ public class MySQLAdsDao implements Ads, UserAds {
     public List<Ad> deleteThisAd(Long id) {
         PreparedStatement stmt;
         try {
-            stmt = connection.prepareStatement("delete FROM ads WHERE id = ?");
+            stmt = connection.prepareStatement(
+                    "SET FOREIGN_KEY_CHECKS=0;" + "delete from ads where id = ? ORDER BY ads.id;"  + "SET FOREIGN_KEY_CHECKS=1;");
             stmt.setLong(1, id);
-            stmt.execute();
+            stmt.executeUpdate();
             return null;
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving ad "+ id, e);

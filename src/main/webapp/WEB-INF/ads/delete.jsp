@@ -11,7 +11,7 @@
 
 <div class="container">
     <h1>Delete an Ad</h1>
-    <h1>Pickj an Ad to Delete:</h1>
+    <h1>Pick an Ad to Delete:</h1>
     <c:forEach var="ad" items="${ads}">
     <form action="/ads/delete?${ad.id}" method="post">
         <div class="row">
