@@ -40,6 +40,7 @@ CREATE TABLE ads
     description TEXT NOT NULL,
     `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     blocks_id INT UNSIGNED NOT NULL,
+    card_name VARCHAR(240) NOT NULL,
 #     categories_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
