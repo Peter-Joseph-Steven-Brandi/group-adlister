@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "controllers.UpdateProfileServlet", urlPatterns = "/update")
+@WebServlet(name = "controllers.UpdateAdServlet", urlPatterns = "/ads/update")
 public class UpdateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        Cookie message = new Cookie("message", "Welcome to the profile page");
@@ -29,6 +29,7 @@ public class UpdateAdServlet extends HttpServlet {
         request.setAttribute("blocks", DaoFactory.getBlocksDao().all());
 
         Long id = Long.parseLong(request.getQueryString());
+//        Ad gfsd = DaoFactory.getAdsDao().thisAdById(id);
         request.setAttribute("ad", DaoFactory.getAdsDao().thisAdById(id));
 //        Ad addd = (Ad) DaoFactory.getAdsDao().thisAdById(id).get(0);
 ////        Ad adddd = (Ad) addd;

@@ -22,6 +22,7 @@
                     <h4>Block: ${ad.block}</h4>
                     <h4>Category: ${ad.category}</h4>
                     <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
+                    <a href="/ads/update?${ad.id}"><button>Update</button></a>
                 </div>
             </c:forEach>
         </div>

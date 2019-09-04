@@ -45,12 +45,14 @@
             </c:forEach>
             <br>
             <div>
-                <select multiple name="category">
+                <label for="newCat">New Category</label>
+                <select id="newCat" name="category">
                     <c:forEach var="category" items="${categories}">
                             <option value="${category.id}">${category.category}</option>
                     </c:forEach>
                 </select>
-                <select name="block">
+                <label for="newBlock">New Block</label>
+                <select id="newBlock" name="block">
                     <%--                    <option value=0 selected>Unknown</option>--%>
                     <c:forEach var="block" items="${blocks}">
                         <option value="${block.id}">${block.block}</option>
