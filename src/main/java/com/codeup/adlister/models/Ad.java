@@ -1,8 +1,5 @@
 package com.codeup.adlister.models;
-
-
 import java.util.Date;
-
 
 public class Ad {
     private long id;
@@ -11,13 +8,21 @@ public class Ad {
     private String description;
     private Date date;
     private int blocksId;
-//    private int categoriesId;
+    private String block;
+    private String category;
 
-    public Ad() {
+    public Ad() { }
 
-
+    public Ad(long id, long userId, String title, String description, Date date, int blocksId, String block, String category) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.blocksId = blocksId;
+        this.block = block;
+        this.category = category;
     }
-
 
     public Ad(long id, long userId, String title, String description, Date date, int blocksId) {
         this.id = id;
@@ -26,16 +31,13 @@ public class Ad {
         this.description = description;
         this.date = date;
         this.blocksId = blocksId;
-//        this.categoriesId = categoriesId;
     }
-
-
+  
     public Ad(long userId, String title, String description, int blocksId) {
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.blocksId = blocksId;
-//        this.categoriesId = categoriesId;
     }
 
     public long getId() {
@@ -86,11 +88,19 @@ public class Ad {
         this.blocksId = blocksId;
     }
 
-//    public int getCategoriesId() {
-//        return categoriesId;
-//    }
-//
-//    public void setCategoriesId(int categoriesId) {
-//        this.categoriesId = categoriesId;
-//    }
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

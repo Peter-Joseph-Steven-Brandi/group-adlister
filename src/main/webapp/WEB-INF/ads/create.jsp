@@ -7,6 +7,7 @@
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
@@ -20,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <c:if test="${sessionScope.error!=null}">
+                <c:if test="${sessionScope.error != null}">
                     <textarea id="description" name="description" class="form-control" type="text" value = ${sessionScope.description}>
                     <%request.getSession().removeAttribute("email");%>
                 </c:if>

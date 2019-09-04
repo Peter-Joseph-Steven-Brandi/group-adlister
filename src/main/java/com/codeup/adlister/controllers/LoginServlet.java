@@ -16,47 +16,50 @@ import java.io.IOException;
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+
+        if (request.getSession().getAttribute("user") != null) {
+            response.sendRedirect("/profile");
+            return;
+        } else {
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        }
+        if (request.getSession().getAttribute("user") == null) {
+            request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-//        String lurker = request.getParameter("from");
         User user = DaoFactory.getUsersDao().findByUsername(username);
-        Cookie[] cookies = request.getCookies();
-        String lurker = request.getParameter("from").replace("/WEB-INF", "").replace("/index", "").replace(".jsp", "");
+        String lurker = request.getParameter("from");
 
         if (username == null) {
-            username = "";
+            request.getSession().setAttribute("username", "");
         } else {
             request.getSession().setAttribute("username", username);
-        }
 
-        if (user == null) {
-            request.getSession().setAttribute("error", "Invalid Username or Password");
-            return;
-        }
 
-        boolean validAttempt = Password.check(password, user.getPassword());
+            boolean validAttempt = Password.check(password, user.getPassword());
 
-        if (validAttempt) {
-            request.getSession().setAttribute("user", user);
+            if (validAttempt) {
+                request.getSession().setAttribute("user", user);
 
-            if (lurker != null && request.getParameter("from") == "/") {
-                response.sendRedirect("/profile");
-                return;
-            }
-            if (lurker != null) {
-                response.sendRedirect(lurker);
-                return;
-            }
-            if (lurker == null) {
-                response.sendRedirect("/profile");
-                return;
-            }
-            else {
-                response.sendRedirect("/login");
+                if (lurker != null && lurker == "") {
+                    response.sendRedirect("/profile");
+                    return;
+                }
+                if (lurker != null && request.getParameter("from") != null) {
+                    response.sendRedirect(lurker);
+                    return;
+                }
+                if (lurker == null) {
+                    response.sendRedirect("/profile");
+                    return;
+                } else {
+                    request.getSession().setAttribute("error", "Invalid Username or Password");
+                    response.sendRedirect("/login");
+                }
             }
         }
     }
