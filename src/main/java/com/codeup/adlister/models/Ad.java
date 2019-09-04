@@ -50,6 +50,20 @@ public class Ad {
         this.block= block;
     }
 
+//                    rs.getLong("user_id"),
+//                            rs.getString("title"),
+//                            rs.getString("description"),
+//                            rs.getDate("date"),
+//                            rs.getInt("blocks_id")
+
+    public Ad(long id,  String title, String description, Date date, Integer blocksId_id) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.blocksId = blocksId_id;
+    }
+
     public long getId() {
         return id;
     }

@@ -15,13 +15,13 @@
 
         <div class="col-md-6">
             <h1>Here Are all the user ads!</h1>
-            <c:forEach var="ad" items="${ads}">
+            <c:forEach var="ads" items="${ads}">
                 <div class="col-md-6" style="border: black 1px">
-                    <h2>${ad.title}</h2>
-                    <p>Description: ${ad.description}</p>
-                    <h4>Block: ${ad.block}</h4>
-                    <h4>Category: ${ad.category}</h4>
-                    <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
+                    <h2>${ads.title}</h2>
+                    <p>Description: ${ads.description}</p>
+                    <h4>Block: ${ads.blocksId}</h4>
+                    <h4>Category: ${ads.category}</h4>
+                    <h3>Date: ${ads.date},  Ad ID:${ads.id}</h3>
                 </div>
             </c:forEach>
         </div>
