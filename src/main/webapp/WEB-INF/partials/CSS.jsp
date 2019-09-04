@@ -19,7 +19,7 @@
     nav{
         border: whitesmoke solid 2px;
         text-shadow: rebeccapurple 2px 2px;
-        /*color: whitesmoke;*/
+        background-color: black;
     }
 
     a:link{
