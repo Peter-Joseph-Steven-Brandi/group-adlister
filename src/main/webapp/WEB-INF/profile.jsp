@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 <script src="js/magicAPICall.js"></script>
 </body>
 <footer>

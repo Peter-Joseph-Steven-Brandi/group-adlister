@@ -23,12 +23,13 @@
                                 <h4 class="text-right">Block: ${ad.block}</h4>
                                 <h4 class="text-right">Category: ${ad.category}</h4>
                             </div>
+                            </div>
                     </form>
-                            </c:forEach>
-                </div>
-             </div>
 
+                            </c:forEach>
+            </div>
         </div>
+    </div>
     </div>
 
 </body>
