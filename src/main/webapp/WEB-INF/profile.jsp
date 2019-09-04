@@ -16,17 +16,13 @@
         <div class="col-lg-12">
             <h1>Here Are all the user ads!</h1>
             <c:forEach var="ad" items="${ads}">
-                <div class="col-md-4" style="border: black 1px; padding: 5em">
-                    <div class="individual-ad" style="border: black 1px">
-                        <h1>${ad.title}</h1>
-                        <p>${ad.description}</p>
+                    <div class="col-md-4" style="padding: 1em">
+                    <h1>${ad.title}</h1>
+                    <p>${ad.description}</p>
                         <hr>
-                        <p id="card-name">Abundance</p>
-                        <script>
-
-                        </script>
+                    <span style="position: relative; padding: 1em; height: 310px; width: 223px" id="card-name">Abundance</span>
+                    <hr>
                     </div>
-                </div>
             </c:forEach>
         </div>
     </div>
