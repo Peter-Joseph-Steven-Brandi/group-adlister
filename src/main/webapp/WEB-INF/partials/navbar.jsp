@@ -21,7 +21,7 @@
                 <li><a href="/profile">Profile</a></li>
             </c:if>
         <c:if test="${sessionScope.user != null}">
-            <a class="navbar-brand" href="/update">Update Profile</a>
+<%--            <a class="navbar-brand" href="/update">Update Profile</a>--%>
             <li><a href="/logout">Logout</a></li>
         </c:if>
         </ul>

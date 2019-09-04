@@ -167,13 +167,42 @@ public class MySQLAdsDao implements Ads, UserAds {
         PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement(
-                    "SET FOREIGN_KEY_CHECKS=0;" + "delete from ads where id = ? ORDER BY ads.id;"  + "SET FOREIGN_KEY_CHECKS=1;");
+                    "delete from adscategories where ad_id = ?");
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad "+ id, e);
+        }
+        try {
+            stmt = connection.prepareStatement(
+                    "delete from ads where id = ?");
             stmt.setLong(1, id);
             stmt.executeUpdate();
             return null;
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving ad "+ id, e);
         }
+
+
     }
+
+    public Ad updateAdInfo(Ad ad) {
+        String query = "update ads SET id = ?, user_id = ?, title = ?, description = ?, date = ?, blocks_id = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, ad.getId());
+            stmt.setLong(2, ad.getUserId());
+            stmt.setString(3, ad.getTitle());
+            stmt.setString(4, ad.getDescription());
+            stmt.setDate(5, ad.getDate());
+            stmt.setLong(6, ad.getBlocksId());
+            stmt.setLong(7, ad.getId());
+            stmt.executeUpdate();
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+    }
+
 
 }
