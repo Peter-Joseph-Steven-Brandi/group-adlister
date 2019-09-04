@@ -6,6 +6,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
+    <jsp:include page="/WEB-INF/partials/CSS.jsp"/>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -32,4 +33,7 @@
 
 
 </body>
+<footer>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
+</footer>
 </html>

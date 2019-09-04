@@ -6,6 +6,10 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads"/>
     </jsp:include>
+    <jsp:include page="/WEB-INF/partials/CSS.jsp"/>
+    <style>
+
+    </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
@@ -17,48 +21,64 @@
             <label for="search">Search</label>
             <input id="search" name="search" class="form-control" type="text" value="${param.searched}">
         </div>
-        <input type="submit" class="btn btn-block btn-primary">
+        <input type="submit" class="btn btn-block btn">
 
     </form>
     <c:choose>
         <c:when test="${param.search != null}">
+    <div class="container">
+        <h1 class="text-center">Click the Ad Below for More Information:</h1>
+        <div class="col-md-12">
+            <div class="row d-inline-flex justify-content-center">
             <c:forEach var="ad" items="${ads}">
                 <c:if test="${fn:containsIgnoreCase(ad.title, param.search) || fn:containsIgnoreCase(ad.description, param.search)
                 || fn:containsIgnoreCase(ad.block, param.search)|| fn:containsIgnoreCase(ad.date, param.search)|| fn:containsIgnoreCase(ad.id, param.search)
                 || fn:containsIgnoreCase(ad.category, param.search)}">
-                    <div class="col-md-6">
-                        <a href="/ad/id/?${ad.id}">
-
-                        <h2>${ad.title}</h2>
-                        </a>
-                        <p>Description: ${ad.description}</p>
-                        <h4>Block: ${ad.block}</h4>
-                        <h4>Category: ${ad.category}</h4>
-                        <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
+                    <div class="card col-md-5 m-2 ">
+                    <a href="/ad/id/?${ad.id}">
+                        <div class="card-body">
+                            <h3 class="card-title">${ad.title}</h3>
+                            <h5 class="text-left">Date: ${ad.date},  Ad ID:${ad.id}</h5>
+                            <p class="card-text">Description: ${ad.description}</p>
+                            <h4 class="text-right">Block: ${ad.block}</h4>
+                            <h4 class="text-right">Category: ${ad.category}</h4>
+                        </div>
                     </div>
                 </c:if>
             </c:forEach>
+            </div>
+        </div>
+    </div>
 
         </c:when>
         <c:otherwise>
             <p>${param.search}</p>
+    <div class="container">
+        <h1 class="text-center">Click the Ad Below for More Information:</h1>
+        <div class="col-md-12">
+            <div class="row d-inline-flex justify-content-center">
             <c:forEach var="ad" items="${ads}">
-                <div class="col-md-6">
+                <div class="card col-md-5 m-2 ">
                     <a href="/ad/id/?${ad.id}">
-
-                    <h2>${ad.title}</h2>
-                    </a>
-                    <p>Description: ${ad.description}</p>
-                    <h4>Block: ${ad.block}</h4>
-                    <h4>Category: ${ad.category}</h4>
-                    <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
+                        <div class="card-body">
+                            <h3 class="card-title">${ad.title}</h3>
+                            <h5 class="text-left">Date: ${ad.date},  Ad ID:${ad.id}</h5>
+                            <p class="card-text">Description: ${ad.description}</p>
+                            <h4 class="text-right">Block: ${ad.block}</h4>
+                            <h4 class="text-right">Category: ${ad.category}</h4>
+                        </div>
                 </div>
             </c:forEach>
-
+            </div>
+        </div>
+    </div>
 
         </c:otherwise>
     </c:choose>
 </div>
 
 </body>
+<footer>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
+</footer>
 </html>

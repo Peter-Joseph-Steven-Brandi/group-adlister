@@ -5,6 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
+    <jsp:include page="/WEB-INF/partials/CSS.jsp"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -20,4 +21,7 @@
     </c:forEach>
 </div>
 </body>
+<footer>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
+</footer>
 </html>

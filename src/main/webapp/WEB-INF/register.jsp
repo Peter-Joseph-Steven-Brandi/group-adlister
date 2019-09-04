@@ -3,9 +3,10 @@
 <%@ page errorPage="messages.jsp"%>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp">
+    <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!"/>
     </jsp:include>
+    <jsp:include page="/WEB-INF/partials/CSS.jsp"/>
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
@@ -45,4 +46,7 @@
         </form>
     </div>
 </body>
+<footer>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
+</footer>
 </html>
