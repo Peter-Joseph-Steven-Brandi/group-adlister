@@ -10,6 +10,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
+
     <div class="container">
         <h1>Choose the Ad You Want to Delete:</h1>
         <div class="col-md-12">
@@ -28,6 +29,7 @@
                             </c:forEach>
                 </div>
              </div>
+
         </div>
     </div>
 </body>

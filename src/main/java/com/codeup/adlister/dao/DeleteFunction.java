@@ -17,9 +17,11 @@ public class DeleteFunction
             Connection conn = DriverManager.getConnection(myUrl, "root", "codeup");
 
 
-            String query = "delete from users where id = ?";
+            String query = "SET FOREIGN_KEY_CHECKS=0;" +
+                    "delete from ads where id = ads.id;" +
+                    "SET FOREIGN_KEY_CHECKS=1";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setInt(1, 3);
+//            preparedStmt.setInt(1, 3);
 
             preparedStmt.execute();
 

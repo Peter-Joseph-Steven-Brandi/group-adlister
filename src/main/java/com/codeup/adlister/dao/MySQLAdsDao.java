@@ -141,10 +141,21 @@ public class MySQLAdsDao implements Ads, UserAds {
         }
     }
 
+//    public List<Ad> thisAdById(Long id) {
+//        PreparedStatement stmt;
+//        try {
+//            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id, blocks.block as block FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id WHERE ads.id = ?");
+//            stmt.setLong(1, id);
+//            ResultSet rs = stmt.executeQuery();
+//            return createAdsFromResults2(rs);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error retrieving ad "+ id, e);
+//        }
+//    }
     public List<Ad> thisAdById(Long id) {
         PreparedStatement stmt;
         try {
-            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id, blocks.block as block FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id WHERE ads.id = ?");
+            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id, blocks.block as block, adscategories.categories_id as categories_id, categories.category as category FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id LEFT JOIN adscategories ON ads.id = adscategories.ad_id LEFT JOIN categories ON adscategories.categories_id = categories.id WHERE ads.id = ? limit 1");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults2(rs);
@@ -156,13 +167,43 @@ public class MySQLAdsDao implements Ads, UserAds {
     public List<Ad> deleteThisAd(Long id) {
         PreparedStatement stmt;
         try {
-            stmt = connection.prepareStatement("delete FROM ads WHERE id = ?");
+            stmt = connection.prepareStatement(
+                    "delete from adscategories where ad_id = ?");
             stmt.setLong(1, id);
-            stmt.execute();
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad "+ id, e);
+        }
+        try {
+            stmt = connection.prepareStatement(
+                    "delete from ads where id = ?");
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
             return null;
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving ad "+ id, e);
         }
+
+
     }
+
+    public Ad updateAdInfo(Ad ad) {
+        String query = "update ads SET id = ?, user_id = ?, title = ?, description = ?, date = ?, blocks_id = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, ad.getId());
+            stmt.setLong(2, ad.getUserId());
+            stmt.setString(3, ad.getTitle());
+            stmt.setString(4, ad.getDescription());
+            stmt.setDate(5, ad.getDate());
+            stmt.setLong(6, ad.getBlocksId());
+            stmt.setLong(7, ad.getId());
+            stmt.executeUpdate();
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+    }
+
 
 }

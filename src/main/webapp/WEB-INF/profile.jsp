@@ -13,9 +13,15 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
+
         <div class="col-md-12">
             <h1 class="text-center">Here Are all the user ads!</h1>
             <div class="row d-inline-flex justify-content-center">
+        <c:if test="${sessionScope.error != null}">
+        <h3 style="color: red">${sessionScope.error}</h3>
+        </c:if>
+        <div class="col-md-6">
+            <h1>Here Are all the user ads!</h1>
             <c:forEach var="ad" items="${ads}">
                 <div class="card col-md-5 m-2 ">
                     <div class="card-body">
