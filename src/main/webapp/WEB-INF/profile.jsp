@@ -23,6 +23,7 @@
         <div class="col-md-6">
             <h1>Here Are all the user ads!</h1>
             <c:forEach var="ad" items="${ads}">
+
                 <div class="card col-md-5 m-2 ">
                     <div class="card-body">
                         <h3 class="card-title">${ad.title}</h3>
@@ -32,15 +33,13 @@
                         <h4 class="text-right">Category: ${ad.category}</h4>
                     </div>
                 </div>
+
             </c:forEach>
             </div>
         </div>
     </div>
 
-
-
-
-
+<script src="js/magicAPICall.js"></script>
 </body>
 <footer>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />

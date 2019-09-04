@@ -19,21 +19,30 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div class="container">
-    <h1 class="text-center">Create a New Ad:</h1>
-    <form action="/ads/create" method="post">
-        <div class="form-group">
-            <label for="title">Title:</label>
-            <c:if test="${sessionScope.error!=null}">
-                <input id="title" name="title" class="form-control" type="text" value = ${sessionScope.title}>
-                <%request.getSession().removeAttribute("title");%>
-            </c:if>
-            <input id="title" name="title" class="form-control" type="text">
-        </div>
-        <div class="form-group">
-            <label for="description">Description:</label>
-            <c:if test="${sessionScope.error != null}">
-            <textarea id="description" name="description" class="form-control" type="text" value = ${sessionScope.description}>
+
+    <div class="container">
+        <h1>Create a new Ad</h1>
+        <form action="/ads/create" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <c:if test="${sessionScope.error!=null}">
+                    <input id="title" name="title" class="form-control" type="text" value = ${sessionScope.title}>
+                    <%request.getSession().removeAttribute("title");%>
+                </c:if>
+                <input id="title" name="title" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="cardName">Card Name</label>
+                <c:if test="${sessionScope.error!=null}">
+                    <input id="cardName" name="card_name" class="form-control" type="text" value="${sessionScope.cardName}">
+                    <%request.getSession().removeAttribute("cardName");%>
+                </c:if>
+                <input id="cardName" name="cardName" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <c:if test="${sessionScope.error != null}">
+                    <textarea id="description" name="description" class="form-control" type="text" value = ${sessionScope.description}>ΩΩ
                     <%request.getSession().removeAttribute("email");%>
                 </c:if>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>

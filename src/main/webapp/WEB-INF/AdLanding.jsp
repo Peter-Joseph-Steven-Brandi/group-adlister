@@ -18,14 +18,20 @@
 
 <div class="container">
     <c:forEach var="ad" items="${ad}">
-            <div class="col-md-12" style="border: black 1px">
-                <h4 class="text-center">Date: ${ad.date}</h4>
-                <h2 class="text-right">${ad.title}</h2>
-                <p class="text-right">${ad.description}</p>
-                <h3 class="text-center">${ad.block}</h3>
-                <h3 class="text-center">${ad.category}</h3>
-            </div>
+    <div class="col-md-6" style="border: black 1px">
+        <h2>${ad.title}</h2>
+        <p>${ad.description}</p>
+        <p class="" id="card-name">${ad.cardName}</p>
+        <div><a id="card-pic" style="height: 100px; width: 100px"></a></div>
+        <h4>${ad.block}</h4>
+
+
+
+        <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
+    </div>
     </c:forEach>
 </div>
+
+<script src="/js/magicAPICall.js"></script>
 </body>
 </html>

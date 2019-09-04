@@ -54,33 +54,9 @@
         </div>
     </div>
 
-        </c:when>
-        <c:otherwise>
-            <p>${param.search}</p>
-    <div class="container">
-        <h1 class="text-center">Click the Ad Below for More Information:</h1>
-        <div class="col-md-12">
-            <div class="row d-inline-flex justify-content-center">
-            <c:forEach var="ad" items="${ads}">
-                <div class="card col-md-5 m-2 ">
-                    <a href="/ad/id/?${ad.id}">
-                        <div class="card-body">
-                            <h3 class="card-title">${ad.title}</h3>
-                            <h5 class="text-left">Date: ${ad.date},  Ad ID:${ad.id}</h5>
-                            <p class="card-text">Description: ${ad.description}</p>
-                            <h4 class="text-right">Block: ${ad.block}</h4>
-                            <h4 class="text-right">Category: ${ad.category}</h4>
-                        </div>
-                </div>
-            </c:forEach>
-            </div>
-        </div>
-    </div>
-
         </c:otherwise>
     </c:choose>
 </div>
-
 </body>
 <footer>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
