@@ -13,18 +13,21 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
-
-        <div class="col-md-6">
-            <h1>Here Are all the user ads!</h1>
-            <c:forEach var="ads" items="${ads}">
-                <div class="col-md-6" style="border: black 1px">
-                    <h2>${ads.title}</h2>
-                    <p>Description: ${ads.description}</p>
-                    <h4>Block: ${ads.blocksId}</h4>
-                    <h4>Category: ${ads.category}</h4>
-                    <h3>Date: ${ads.date},  Ad ID:${ads.id}</h3>
+        <div class="col-md-12">
+            <h1 class="text-center">Here Are all the user ads!</h1>
+            <div class="row d-inline-flex justify-content-center">
+            <c:forEach var="ad" items="${ads}">
+                <div class="card col-md-5 m-2 ">
+                    <div class="card-body">
+                        <h3 class="card-title">${ad.title}</h3>
+                        <h5 class="text-left">Date: ${ad.date},  Ad ID:${ad.id}</h5>
+                        <p class="card-text">Description: ${ad.description}</p>
+                        <h4 class="text-right">Block: ${ad.block}</h4>
+                        <h4 class="text-right">Category: ${ad.category}</h4>
+                    </div>
                 </div>
             </c:forEach>
+            </div>
         </div>
     </div>
 

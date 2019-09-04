@@ -16,7 +16,7 @@
 <%--</c:choose>--%>
  <div class="container">
         <h1 class="text-left">Welcome to the land of used magical cards...</h1>
-     <p class="text-right">"It's actually quite simple, but since you've only recently begun to walk upright, it may take some time to explain."/n
+     <p class="text-right">"It's actually quite simple, but since you've only recently begun to walk upright, it may take some time to explain."
          —Jace Beleren, to Garruk Wildspeaker</p>
     </div>
 
