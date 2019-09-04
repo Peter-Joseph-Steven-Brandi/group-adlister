@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
 import java.util.List;
 
@@ -15,5 +16,6 @@ public interface Ads {
     List<Ad> thisAdById(Long id);
     Long insertCat(Long id, int category);
     List<Ad> deleteThisAd(Long id);
+    Ad updateAdInfo(Ad ad);
 
 }

@@ -12,7 +12,9 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
-
+        <c:if test="${sessionScope.error != null}">
+        <h3 style="color: red">${sessionScope.error}</h3>
+        </c:if>
         <div class="col-md-6">
             <h1>Here Are all the user ads!</h1>
             <c:forEach var="ad" items="${ads}">
@@ -22,6 +24,7 @@
                     <h4>Block: ${ad.block}</h4>
                     <h4>Category: ${ad.category}</h4>
                     <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
+                    <a href="/ads/update?${ad.id}"><button>Update</button></a>
                 </div>
             </c:forEach>
         </div>
