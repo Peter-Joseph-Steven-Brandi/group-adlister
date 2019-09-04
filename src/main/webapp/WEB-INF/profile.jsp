@@ -20,7 +20,7 @@
         <c:if test="${sessionScope.error != null}">
         <h3 style="color: red">${sessionScope.error}</h3>
         </c:if>
-        <div class="col-md-6">
+<%--        <div class="col-md-6">--%>
             <h1>Here Are all the user ads!</h1>
             <c:forEach var="ad" items="${ads}">
 

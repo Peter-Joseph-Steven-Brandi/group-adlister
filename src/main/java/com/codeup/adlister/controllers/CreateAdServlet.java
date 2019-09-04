@@ -70,4 +70,3 @@ public class CreateAdServlet extends HttpServlet {
 }
 
 
-
