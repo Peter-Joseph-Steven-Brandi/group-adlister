@@ -29,16 +29,23 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+        String cardName = request.getParameter("cardName");
         Integer blockId = (Integer) Integer.parseInt(request.getParameter("block") );
         String block = request.getParameter("block");
         int categoryId = Integer.parseInt(request.getParameter("category"));
 
-        Ad ad = new Ad(user.getId(), title, description,  blockId);
+        Ad ad = new Ad(user.getId(), title, description,  blockId, cardName);
 
         if (title == null) {
             title = " ";
         }else{
             request.getSession().setAttribute("title", title);
+        }
+
+        if (cardName == null) {
+            cardName = "blank";
+        }else{
+            request.getSession().setAttribute("cardName", "cardName");
         }
 
         if (description == null) {

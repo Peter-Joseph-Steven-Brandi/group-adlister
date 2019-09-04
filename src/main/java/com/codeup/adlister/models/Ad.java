@@ -35,11 +35,12 @@ public class Ad {
         this.blocksId = blocksId;
     }
   
-    public Ad(long userId, String title, String description, int blocksId) {
+    public Ad(long userId, String title, String description, int blocksId, String cardName) {
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.blocksId = blocksId;
+        this.cardName = cardName;
     }
 
     public long getId() {

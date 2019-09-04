@@ -27,7 +27,7 @@ public class MySQLAdsDao implements Ads, UserAds {
         PreparedStatement stmt = null;
         try {
 //            stmt = connection.prepareStatement("SELECT * FROM ads");
-            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id, ads.card_name as card_name, blocks.block as block, adscategories.categories_id as categories_id, categories.category as category FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id LEFT JOIN adscategories ON ads.id = adscategories.ad_id LEFT JOIN categories ON adscategories.categories_id = categories.id;");
+            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id, blocks.block as block, ads.card_name as card_name, adscategories.categories_id as categories_id, categories.category as category FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id LEFT JOIN adscategories ON ads.id = adscategories.ad_id LEFT JOIN categories ON adscategories.categories_id = categories.id;");
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults2(rs);
         } catch (SQLException e) {
@@ -99,6 +99,7 @@ public class MySQLAdsDao implements Ads, UserAds {
             rs.getString("description"),
             rs.getDate("date"),
             rs.getInt("blocks_id")
+
         );
     }
 
@@ -110,9 +111,10 @@ public class MySQLAdsDao implements Ads, UserAds {
                 rs.getString("description"),
                 rs.getDate("date"),
                 rs.getInt("blocks_id"),
-                rs.getString("cards_name"),
+                rs.getString("card_name"),
                 rs.getString("block"),
                 rs.getString("category")
+
         );
     }
 
@@ -135,7 +137,7 @@ public class MySQLAdsDao implements Ads, UserAds {
     public Ad thisAd(String id) {
         PreparedStatement stmt;
         try {
-            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id,ads.card_name as card_name, blocks.block as block, adscategories.categories_id as categories_id, categories.category as category FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id LEFT JOIN adscategories ON ads.id = adscategories.ad_id LEFT JOIN categories ON adscategories.categories_id = categories.id WHERE user_id = ?");
+            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id, blocks.block as block, ads.card_name as card_name, adscategories.categories_id as categories_id, categories.category as category FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id LEFT JOIN adscategories ON ads.id = adscategories.ad_id LEFT JOIN categories ON adscategories.categories_id = categories.id WHERE user_id = ?");
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             return extractAd(rs);
@@ -158,7 +160,7 @@ public class MySQLAdsDao implements Ads, UserAds {
     public List<Ad> thisAdById(Long id) {
         PreparedStatement stmt;
         try {
-            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id, ads.card_name as card_name, blocks.block as block, adscategories.categories_id as categories_id, categories.category as category FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id LEFT JOIN adscategories ON ads.id = adscategories.ad_id LEFT JOIN categories ON adscategories.categories_id = categories.id WHERE ads.id = ?");
+            stmt = connection.prepareStatement("SELECT ads.id as ads_id, ads.user_id as user_id, ads.title as title, ads.description as description, ads.date as date, ads.blocks_id as blocks_id, blocks.block as block, ads.card_name as card_name, adscategories.categories_id as categories_id, categories.category as category FROM ads LEFT JOIN blocks ON ads.blocks_id = blocks.id LEFT JOIN adscategories ON ads.id = adscategories.ad_id LEFT JOIN categories ON adscategories.categories_id = categories.id WHERE ads.id = ?");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults2(rs);
