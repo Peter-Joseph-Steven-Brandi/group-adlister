@@ -16,6 +16,7 @@
         text-shadow: rebeccapurple 3px 3px;
     }
 
+
     nav{
         border: whitesmoke solid 2px;
         text-shadow: rebeccapurple 2px 2px;
