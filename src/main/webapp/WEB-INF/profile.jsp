@@ -13,7 +13,10 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <div class="col-lg-12">
+        <c:if test="${sessionScope.error != null}">
+        <h3 style="color: red">${sessionScope.error}</h3>
+        </c:if>
+        <div class="col-md-6">
             <h1>Here Are all the user ads!</h1>
             <c:forEach var="ad" items="${ads}">
                     <div class="col-md-4" style="padding: 1em">
