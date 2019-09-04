@@ -15,8 +15,7 @@
         <div class="row d-inline-flex justify-content-center">
             <c:forEach var="ad" items="${ads}">
                 <form action="/ads/delete?${ad.id}" method="post">
-                    <div class="card m-2 ">
-                        <div class="card-body">
+                    <div class="card m-2"><div class="card-body">
                             <h3 class="card-title">${ad.title}</h3>
                             <h5 class="text-left">Date: ${ad.date}, Ad ID:${ad.id}</h5>
                             <p class="card-text">Description: ${ad.description}</p>
