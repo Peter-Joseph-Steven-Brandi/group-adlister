@@ -39,7 +39,7 @@
                 || fn:containsIgnoreCase(ad.block, param.search)|| fn:containsIgnoreCase(ad.date, param.search)|| fn:containsIgnoreCase(ad.id, param.search)
                 || fn:containsIgnoreCase(ad.category, param.search)}">
                     <div class="card col-md-5 m-2 ">
-                        <a href="/ad/id/?${ad.id}"></a>
+                    <a href="/ad/id/?${ad.id}">
                         <div class="card-body">
                             <h3 class="card-title">${ad.title}</h3>
                             <h5 class="text-left">Date: ${ad.date},  Ad ID:${ad.id}</h5>
