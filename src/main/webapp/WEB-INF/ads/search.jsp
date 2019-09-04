@@ -14,6 +14,10 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
+<div class="top image">
+    <img class="d-block w-100" src="https://media.wired.com/photos/5d32362665c5e400082d457f/master/pass/culture_magic_15079064.jpg" alt="900x400" data-holder-rendered="true" style="width: 60rem; height: 25rem;">
+</div>
+
 <div class="container">
     <h1 class="text-center">Search for an Ad:</h1>
     <form action="/ads/search" method="get">
