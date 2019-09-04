@@ -8,25 +8,23 @@ public class Ad {
     private String description;
     private Date date;
     private int blocksId;
+    private String cardName;
     private String block;
     private String category;
 
-    public Ad() {
+    public Ad() { }
 
-    }
-
-
-    public Ad(long id, long userId, String title, String description, Date date, int blocksId, String block, String category) {
+    public Ad(long id, long userId, String title, String description, Date date, int blocksId, String cardName, String block, String category) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.date = date;
         this.blocksId = blocksId;
+        this.cardName = cardName;
         this.block = block;
         this.category = category;
     }
-
 
     public Ad(long id, long userId, String title, String description, Date date, int blocksId) {
         this.id = id;
@@ -37,11 +35,12 @@ public class Ad {
         this.blocksId = blocksId;
     }
   
-    public Ad(long userId, String title, String description, int blocksId) {
+    public Ad(long userId, String title, String description, int blocksId, String cardName) {
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.blocksId = blocksId;
+        this.cardName = cardName;
     }
 
     public long getId() {
@@ -91,6 +90,10 @@ public class Ad {
     public void setBlocksId(int blocksId) {
         this.blocksId = blocksId;
     }
+
+    public String getCardName() { return cardName; }
+
+    public void setCardName(String cardName) { this.cardName = cardName; }
 
     public String getBlock() {
         return block;

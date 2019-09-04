@@ -14,7 +14,7 @@
     <h1>Pick an Ad to Delete:</h1>
     <c:forEach var="ad" items="${ads}">
     <form action="/ads/delete?${ad.id}" method="post">
-        <div class="row">
+<%--        <div class="row">--%>
             <div class="col-md-6" style="border: black 1px">
                 <h2>${ad.title}</h2>
                 <p>Description: ${ad.description}</p>
@@ -23,9 +23,11 @@
                 <h3>Date: ${ad.date}, Ad ID:${ad.id}</h3>
                 <input type="submit" value="Delete">
             </div>
-            </c:forEach>
-        </div>
+<%--            </c:forEach>--%>
+<%--        </div>--%>
     </form>
+    </c:forEach>
+
 </div>
 </body>
 </html>

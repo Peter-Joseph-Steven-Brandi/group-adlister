@@ -38,7 +38,6 @@
                     </div>
                 </c:if>
             </c:forEach>
-
         </c:when>
         <c:otherwise>
             <p>${param.search}</p>
@@ -54,11 +53,8 @@
                     <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
                 </div>
             </c:forEach>
-
-
         </c:otherwise>
     </c:choose>
 </div>
-
 </body>
 </html>
