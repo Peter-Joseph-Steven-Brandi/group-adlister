@@ -1,7 +1,8 @@
 <style>
     body{
         background-color: black;
-        color: white;
+        color: whitesmoke;
+        text-shadow: rebeccapurple 2px 2px;
     }
     .card{
         /*background-color: gray;*/
@@ -31,6 +32,12 @@
     .btn{
         background-color: rebeccapurple;
         color:whitesmoke;
+        border-color: rebeccapurple;
+    }
+
+    label{
+        color: whitesmoke;
+        text-shadow: rebeccapurple 2px 2px;
     }
 
 

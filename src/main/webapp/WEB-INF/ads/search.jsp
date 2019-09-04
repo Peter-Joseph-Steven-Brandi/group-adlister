@@ -15,10 +15,10 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
-    <h1>Search for an Ad!</h1>
+    <h1 class="text-center">Search for an Ad:</h1>
     <form action="/ads/search" method="get">
         <div class="form-group">
-            <label for="search">Search</label>
+<%--            <label for="search">Search:</label>--%>
             <input id="search" name="search" class="form-control" type="text" value="${param.searched}">
         </div>
         <input type="submit" class="btn btn-block btn">
