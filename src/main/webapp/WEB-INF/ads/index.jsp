@@ -4,7 +4,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Ads" />
+        <jsp:param name="title" value="Viewing All The Ads"/>
     </jsp:include>
     <style>
         body{
@@ -31,13 +31,14 @@
     </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
     <h1 class="text-center">Ad Index Located Below:</h1>
         <div class="col-md-12">
             <div class="row d-inline-flex justify-content-center">
     <c:forEach var="ad" items="${ads}">
+<<<<<<< HEAD
             <div class="card col-md-5 m-2 ">
                 <div class="card-body">
                     <h3 class="card-title">${ad.title}</h3>
@@ -47,6 +48,17 @@
                     <h4 class="text-right">Category: ${ad.category}</h4>
                 </div>
             </div>
+=======
+        <div class="col-md-6" style="border: black 1px">
+            <a href="/ad/id/?${ad.id}">
+            <h2>${ad.title}</h2>
+            </a>
+            <p>Description: ${ad.description}</p>
+            <h4>Block: ${ad.block}</h4>
+            <h4>Category: ${ad.category}</h4>
+            <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
+        </div>
+>>>>>>> origin
     </c:forEach>
         </div>
         </div>

@@ -152,6 +152,7 @@ public class MySQLAdsDao implements Ads, UserAds {
             throw new RuntimeException("Error retrieving ad "+ id, e);
         }
     }
+
     public List<Ad> deleteThisAd(Long id) {
         PreparedStatement stmt;
         try {

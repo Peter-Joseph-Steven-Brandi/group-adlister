@@ -3,10 +3,13 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Home</a>
+            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/ads">Ads</a>
             <a class="navbar-brand" href="/ads/search">Search</a>
             <c:if test="${sessionScope.user != null}">
                 <a class="navbar-brand" href="/ads/create">Create an Ad</a>
+                <a class="navbar-brand" href="/ads/delete">Delete an Ad</a>
+
             </c:if>
         </div>
         <ul class="nav navbar-nav navbar-right">

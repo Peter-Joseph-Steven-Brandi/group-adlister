@@ -1,5 +1,6 @@
 package com.codeup.adlister.models;
 import java.util.Date;
+
 public class Ad {
     private long id;
     private long userId;
@@ -40,28 +41,6 @@ public class Ad {
         this.title = title;
         this.description = description;
         this.blocksId = blocksId;
-    }
-
-    public Ad(long userId, String title, String description, int blocksId, String block) {
-        this.userId = userId;
-        this.title = title;
-        this.description = description;
-        this.blocksId= blocksId;
-        this.block= block;
-    }
-
-//                    rs.getLong("user_id"),
-//                            rs.getString("title"),
-//                            rs.getString("description"),
-//                            rs.getDate("date"),
-//                            rs.getInt("blocks_id")
-
-    public Ad(long id,  String title, String description, Date date, Integer blocksId_id) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.date = date;
-        this.blocksId = blocksId_id;
     }
 
     public long getId() {
