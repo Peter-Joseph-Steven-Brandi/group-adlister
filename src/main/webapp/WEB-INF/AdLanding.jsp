@@ -5,6 +5,13 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
+    <jsp:include page="/WEB-INF/partials/CSS.jsp"/>
+    <style>
+        body {
+            background-image: url("http://static.hdw.eweb4.com/media/wallpapers_1920x1080/games/1/1/magic-the-gathering-game-hd-wallpaper-1920x1080-9353.jpg");
+            background-position: center;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />

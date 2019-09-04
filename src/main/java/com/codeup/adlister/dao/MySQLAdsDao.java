@@ -93,12 +93,12 @@ public class MySQLAdsDao implements Ads, UserAds {
     }
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("ads_id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description"),
-            rs.getDate("date"),
-            rs.getInt("blocks_id")
+                rs.getLong("ads_id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description"),
+                rs.getDate("date"),
+                rs.getInt("blocks_id")
 
         );
     }
@@ -170,6 +170,7 @@ public class MySQLAdsDao implements Ads, UserAds {
             throw new RuntimeException("Error retrieving ad "+ id, e);
         }
     }
+
     public List<Ad> deleteThisAd(Long id) {
         PreparedStatement stmt;
         try {

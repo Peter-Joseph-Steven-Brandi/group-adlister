@@ -16,9 +16,10 @@ import java.util.List;
 @WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads")
 public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        Cookie message = new Cookie("message", "Welcome to the ads page.");
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
+
+
+
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
 //        response.addCookie(message);
     }
