@@ -31,6 +31,8 @@
                         </a>
                         <h5 class="text-left">Date: ${ad.date},  Ad ID:${ad.id}</h5>
                         <p class="card-text">Description: ${ad.description}</p>
+<%--                        <h4 id="card-name" class="hidden">${ad.cardName}</h4>--%>
+<%--                        <div><a id="card-pic"></a></div>--%>
                         <h4 class="text-right">Block: ${ad.block}</h4>
                         <h4 class="text-right">Category: ${ad.category}</h4>
                     </div>
@@ -41,7 +43,7 @@
         </div>
     </div>
 
-<script src="js/magicAPICall.js"></script>
+<%--<script src="js/magicAPICall.js"></script>--%>
 </body>
 <footer>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />

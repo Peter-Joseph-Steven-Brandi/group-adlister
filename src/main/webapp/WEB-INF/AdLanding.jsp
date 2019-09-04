@@ -19,15 +19,16 @@
 <div class="container">
     <c:forEach var="ad" items="${ad}">
     <div class="col-md-6" style="border: black 1px">
-        <h2>${ad.title}</h2>
-        <p>${ad.description}</p>
-        <p class="" id="card-name">${ad.cardName}</p>
+        <h2>Title: ${ad.title}</h2>
+        <p>Description: ${ad.description}</p>
+        <p class="hidden" id="card-name">${ad.cardName}</p>
         <div><a id="card-pic" style="height: 100px; width: 100px"></a></div>
-        <h4>${ad.block}</h4>
-
-
+        <h4>Block: ${ad.block}</h4>
+        <h4 class=“text-right”>Category: ${ad.category}</h4>
 
         <h3>Date: ${ad.date},  Ad ID:${ad.id}</h3>
+        <hr>
+
     </div>
     </c:forEach>
 </div>
