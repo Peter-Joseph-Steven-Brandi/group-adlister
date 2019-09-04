@@ -9,9 +9,12 @@
     <jsp:include page="/WEB-INF/partials/CSS.jsp"/>
     <style>
         body{
-            background-image: url("http://www.alayna.net/images/gallery/fullsize/mtg/selesnya.jpg");
+            background-image: url("https://images.alphacoders.com/265/thumb-1920-265693.png");
             background-position: center;
             background-size: 90rem 50rem;
+        }
+        .container{
+            margin-top: 100px;
         }
     </style>
 </head>
